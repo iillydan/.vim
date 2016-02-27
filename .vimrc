@@ -6,6 +6,7 @@ if version >= 700
 	set cursorline      "光标行下划线
 end
 set incsearch           "开启实时搜索
+set hlsearch            "搜索高亮
 set ignorecase          "搜索忽略大小写
 set wildmenu            "开启vim命令行补全
 
@@ -38,5 +39,24 @@ set background=dark
 colorscheme Dark2
 
 "插件管理
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+"File Explorer
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1  "删除文件时自动删除文件对应 buffer
+"Tag Viewer
+let tagbar_right=1              "设置tagbar子窗口位置
+let g:tagbar_compact=1          "不显示帮助信息，帮助使用?
+let tagbar_width=30
+
+"快捷键
+nmap <F2> :tabnew<CR>
+nmap <F3> :close<CR>
+nmap <F6> :TagbarToggle<CR>
+"MiniBufferExplorer
+nmap <F5> :MBEToggle<CR>        
+nmap <F7> :NERDTreeToggle<CR>
+"build
+nmap <F10> :wa<CR>:make<CR><CR>:cw<CR>
